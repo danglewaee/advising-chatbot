@@ -6,3 +6,7 @@ numpy
 fastapi
 uvicorn
 pdfminer.six
+
+fastapi
+uvicorn
+jinja2
