@@ -1,0 +1,9 @@
+# Ignore env and data
+.venv/
+__pycache__/
+data/raw/
+data/processed/
+data/indices/
+*.ipynb_checkpoints
+.env
+.DS_Store
