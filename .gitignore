@@ -12,3 +12,12 @@ data/indices/
 rag/*.index
 rag/*.pkl
 
+
+# RAG indices & metadata
+rag/*.index
+rag/*.pkl
+# Data folders
+data/raw/
+data/processed/
+data/indices/
+
