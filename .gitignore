@@ -17,5 +17,5 @@ rag/*.pkl
 rag/*.index
 rag/*.pkl
 
-#!data/
-#!data/**
+!data/
+!data/**
