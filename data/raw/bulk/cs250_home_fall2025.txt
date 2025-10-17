@@ -1,0 +1,161 @@
+COMPSCI 250 Home Page, Fall 2025
+COMPSCI 250: Introduction to Computation
+David Mix Barrington and Mordecai Golin
+Fall 2025
+This is the home page for COMPSCI 250.
+COMPSCI 250 is the undergraduate core course in
+discrete mathematics and will deal with logic, elementary number theory,
+proof by induction, recursion on trees, search algorithms, 
+finite state machines, and a bit of computability.
+The two lectures each day will be very similar and use
+very similar lecture slides.  Lecture 250-01 (Dave) meets MWF 1:25-2:15
+p.m. in Goessmann 64.
+Lecture 250-02 (Mordecai) meets MWF 10:10-11:00
+a.m., in Goessmann 20.  The sections will have the same homework and exams, and will use
+a single Canvas site.
+There are eight discussion sections each Wednesday:
+250-01AB, 10:10-1100 a.m., Marston 220
+250-01AC, 11:15 a.m.-12:05 p.m., Marston 220
+250-01AD, 12:20 p.m.-1:10 p.m., Marston 220
+250-01AE, 4:00-4:50 p.m., Marston 211
+250-02AB, 11:15 a.m.-12:05 p.m., ELAB 325
+250-02AC, 1:25-2:15 p.m., Marston 220
+250-02AD, 2:30-3:20 p.m., Skinner 12
+250-02AE, 1:25-2:15, Marston 15
+David Mix Barrington
+, 210 Computer Science
+  Building, 545-4329, private zoom number 459 532 6175, office hours
+  for Fall 2025:
+Monday 3-4, Thursday 2-3, Friday 12-1, all in person in room 210
+Mordecai Golin
+,
+A143 LGRC, office hours for Fall 2025: TBA
+The best way to contact either
+Dave
+or
+Mordecai
+is by email.
+  Dave will usually eventually answer email at barring@umass.edu, but not as
+  quickly.
+TA and UCA Information:
+All TA office hours are in LGRT 220 except when announced
+    otherwise -- check the Canvas page as these may change.
+TA
+Takuto Ban
+, 
+    office hours TBA
+TA
+Jackson Bibbens
+, 
+    office hours TBA
+TA
+Carter Luck
+, office 
+  hours TBA
+TA
+Ayesha Mostofa
+, 
+  office hours TBA
+TA
+Cooper Sigrist
+, 
+   office hours TBA
+Head UCA
+Henry Yang
+,
+    office hours TBA
+Head UCA
+Joud Zamzami
+, office hours TBA
+UCA's
+Alex Barlow, Xingyu Cai, Pelin Egriboyun, Gianna Leidich, Om Mehta, 
+Venkataraman Varatharajan
+UCA office hours: TBD
+General Information:
+This course is primarily intended for undergraduates in computer science 
+and related majors such as informatics, mathematics or computer
+  engineering.
+  CICS 160
+(using data structures) and MATH 132 (Calculus II) are prerequisites
+and are pretty strictly enforced.
+The four-credit course meets for three lecture meetings a week, Monday,
+  Wednesday, and Friday.  Each discussion will meet some time on
+  Friday.
+  The locations and times for the class meetings are listed above.The
+  two
+  lectures will be similar and will follow the
+  textbook pretty closely.  Both lecture sections of the course will have
+  the same assignments, exams, and grade scale.
+The
+schedule
+below indicates which
+  lectures and discussions happen which days, which sections of the
+  book to which they refer, and when the homework assignments are due.
+There is one discussion meeting per week for each of the nine
+sections, at various times on Wednesdays as indicated on
+  SPIRE.
+ Each discussion will have a written assignment which you
+will carry out in groups.
+Discussion attendance is required,
+so that missing a discussion
+  will incur a grade penalty. The TA's and instructors will cover the sections
+  in various
+combinations, 
+so they will be as interchangeable as we can make them.
+The textbook is the first edition of Dave's in-progress book,
+A Mathematical Foundation for Computer Science
+.  This
+will be available as an e-book from
+Kendall 
+Hunt Publishing
+, but do
+not
+buy the "Revised Preliminary Edition", as it will not include the
+correct
+assessment package.  The correct information should be up there soon.
+The book has an "assessment
+  package" where you will need the current version of the book to
+  answer quiz questions.  The book and package
+  can be obtained from the eCampus site or
+  directly from Kendall Hunt.  (Dave does not get royalties for
+  purchases from students in the course -- they are contributed
+  to the
+David Mix
+Barrington Scholarship in Computer Science
+.)
+The course is using the Canvas course
+  management system and the Piazza system for student discussion.
+  We will also use a free system called
+ClassQuestion
+, which replaces
+  the iClicker system we used in prior years.  They will be used in grading only
+  for classroom attendance.
+  Basic information about the course will be on this
+site, and specifics of the course will be off of the Moodle main page
+once it is established.
+Full Syllabus for the Course
+Course Requirements and Grading
+Learning Goals for the Course
+Lecture Slides from Spring 2014
+Exam Directory (empty so far)
+Exam Directory from Fall 2023
+Exam Directory from Spring 2024
+Exam Directory from Fall 2024
+Exam Directory from Spring 2025
+Detailed Schedule (Lectures, Discussion, HW)
+Piazza main page
+    for the course
+Announcements (8 August 2025):
+(8 Aug) The preliminary course page is going up today.  Not much is changing
+  from the Spring 2025 offering of the course, and the main page for
+  that offering is
+here
+.  Note that the TA
+  and
+  UCA listings are currently the most recent I have available for
+  Fall 2025,
+  but some will probably change.
+  The first class is 3 September, but remember that there are
+  no discussions on the first day -- the first discussion is 10
+  September.
+Last modified 6 September 2025
