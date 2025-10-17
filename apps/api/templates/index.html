@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Advising Chatbot RAG</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        max-width: 700px;
+        margin: 50px auto;
+      }
+      textarea {
+        width: 100%;
+        height: 100px;
+      }
+      button {
+        padding: 10px 15px;
+        margin-top: 10px;
+      }
+      .answer {
+        background: #f4f4f4;
+        padding: 15px;
+        border-radius: 6px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🎓 UMass Advising Chatbot</h1>
+    <form id="chat-form">
+      <textarea
+        id="query"
+        placeholder="Ask a question about UMass courses..."
+      ></textarea>
+      <button type="submit">Ask</button>
+    </form>
+    <div id="response" class="answer"></div>
+
+    <script>
+      const form = document.getElementById("chat-form");
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const q = document.getElementById("query").value;
+        const res = await fetch(`/ask?q=${encodeURIComponent(q)}`);
+        const data = await res.json();
+        document.getElementById(
+          "response"
+        ).innerHTML = `<b>Answer:</b> ${data.answer}`;
+      });
+    </script>
+  </body>
+</html>
