@@ -7,3 +7,8 @@ data/indices/
 *.ipynb_checkpoints
 .env
 .DS_Store
+
+# RAG indices & metadata
+rag/*.index
+rag/*.pkl
+
