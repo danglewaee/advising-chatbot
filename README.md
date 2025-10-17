@@ -9,7 +9,8 @@ It uses a Retrieval-Augmented Generation (RAG) pipeline to answer questions abou
 - **Chunking:** `pipelines/chunk.py`
 - **Embedding & Indexing:** `pipelines/embed_index.py` (local SentenceTransformers)
 - **Retrieval:** `rag/pipeline.py`
-- **API:** `apps/api/main.py` (FastAPI)
+- **Web Interface:** `apps/api/main.py` (FastAPI web UI)
+
 
 ## Setup
 
