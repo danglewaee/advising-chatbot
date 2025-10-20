@@ -1,7 +1,7 @@
 ﻿import re
 import faiss, json, numpy as np
-from pathlib import Path
 from sentence_transformers import SentenceTransformer
+from pathlib import Path
 
 INDEX_PATH = Path("data/indices/faiss.index")
 META_PATH  = Path("data/indices/meta.json")

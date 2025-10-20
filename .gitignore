@@ -17,3 +17,5 @@ rag/*.pkl
 rag/*.index
 rag/*.pkl
 
+# test files
+test

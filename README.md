@@ -19,3 +19,13 @@ python -m venv .venv
 .\.venv\Scripts\activate
 pip install -r requirements.txt
 ```
+
+## Note on Apple Silicon
+
+The line "import sentence_transformers" will hang if run on Python 3.13 \
+Therefore, if you are using a Silicon mac, create your venv using Python 3.12, with the following setup (conda):
+```bash
+conda create -n venv_name python=3.12
+conda activate venv_name
+pip install -r requirements.txt
+```
