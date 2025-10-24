@@ -10,3 +10,5 @@ pdfminer.six
 fastapi
 uvicorn
 jinja2
+langchain
+jq

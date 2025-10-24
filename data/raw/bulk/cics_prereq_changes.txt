@@ -1,8 +1,3 @@
-Prerequisite, Catalog, and Credit Changes : Manning College of Information & Computer Sciences : UMass Amherst
-Skip to main content
-The University of Massachusetts Amherst
-Prerequisite, Catalog, and Credit Changes
-The following prerequisite, catalog number, and credit changes have been approved by the faculty senate.
 Prerequisite Changes
 COMPSCI 198C Practicum - Introduction to the C Programming Language, effective Fall 2024:
 FROM:  COMPSCI 121 WITH A GRADE OF B OR BETTER, OR CICS 160 (PREVIOUSLY INFO 190T OR COMPSCI 186) WITH A GRADE OF C OR BETTER.
@@ -102,6 +97,9 @@ TO:  COMPSCI 666 Theory and Practice of Cryptography
 COMPSCI 691DD Seminar-Research Methods in Empirical Computer Science, effective Fall 2023.
 FROM:  COMPSCI 691DD
 TO:  COMPSCI 602 Research Methods in Empirical Computer Science
+COMPSCI 696DS Independent Study-Data Science, effective Spring 2026.
+FROM:  COMPSCI 696DS
+TO:  COMPSCI 698DS Practicum-Data Science
 Title Changes
 COMPSCI 390R, effective Spring 2025:
 FROM:  Reverse Engineering and Vulnerability Analysis
@@ -123,12 +121,3 @@ Courses
 Registration Updates
 Academic Year Course Offering Plan Exceptions
 New Course Numbers
-Prerequisite, Catalog, and Credit Changes
-Global footer
-©2025
-University of Massachusetts Amherst
-Site policies
-Privacy
-Non-discrimination notice
-Accessibility
-Terms of use

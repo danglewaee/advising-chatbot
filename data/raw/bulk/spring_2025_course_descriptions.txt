@@ -1,8 +1,3 @@
-Spring 2025 Course Descriptions | Manning College of Information & Computer Sciences
-Skip to main content
-The University of Massachusetts Amherst
-Spring 2025 Course Descriptions
-2025 Spring
 CICS 109: Introduction to Data Analysis in R
 Instructor(s): Jasper McChesney
 An introduction to data analysis in the open-source R language, with an emphasis on practical data work. Topics will include data wrangling, summary statistics, modeling, and visualization. Will also cover fundamental programming concepts including data types, functions, flow of control, and good programming practices. Intended for a broad range of students outside of computer science. Some familiarity with statistics is expected. 1 credit.
@@ -288,12 +283,3 @@ This course will cover the design of personal health and wellness technologies. 
 INFO H490PI: Honors Colloquium for Personal Health Informatics
 Instructor(s): Ravi Karkar
 This colloquium will dive deeper into issues related to design of personal health technologies. You will study examples of existing platforms, read relevant publications, and will produce a critical reflection on the state and future direction of the field.
-Last automatic generation: 2/11/2025 at 3:57:49 PM
-Global footer
-©2025
-University of Massachusetts Amherst
-Site policies
-Privacy
-Non-discrimination notice
-Accessibility
-Terms of use
