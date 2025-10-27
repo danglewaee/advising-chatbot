@@ -10,10 +10,14 @@ def load_json(file_path: str):
     # If your JSON fields are not plain text (for example lists or objects),
     # set text_content=False so the loader will keep the raw value instead of
     # forcing it into the `page_content` string field and raising the error.
-    # Use `to_entries[]` so we keep the original object key (e.g. the course
-    # title) together with its value. Each entry returned will be an object
-    # like {"key": "CICS 109: ...", "value": [...]}
-    loader = JSONLoader(file_path=file_path, jq_schema="to_entries[]", text_content=False)
+    # Emit objects where the original key becomes the actual property name
+    # e.g. {"CICS 109: Introduction to ...": [...]}
+    # jq: to_entries[] | {(.key): .value}
+    loader = JSONLoader(
+        file_path=file_path,
+        jq_schema=r'to_entries[] | {(.key): .value}',
+        text_content=False,
+    )
     documents = loader.load()
 
     # Convert structured JSON values (dicts/lists) into readable text that
@@ -27,12 +31,11 @@ def load_json(file_path: str):
             doc.metadata = dict(doc.metadata or {})
             doc.metadata["raw_json"] = content
 
-            # Special-case entries produced by `to_entries[]`: they have
-            # {'key': <key>, 'value': <value>}. We want page_content to start
-            # with the key (the course title) followed by the value lines.
-            if "key" in content and "value" in content:
-                key = content.get("key")
-                val = content.get("value")
+            # If the dict is a single-key mapping (e.g. {"Course title": [...]})
+            # format as: <key>\n<value-line-1>\n<value-line-2>...
+            if len(content) == 1:
+                key = next(iter(content))
+                val = content[key]
 
                 def fmt(v):
                     if isinstance(v, (dict, list)):
@@ -41,10 +44,8 @@ def load_json(file_path: str):
 
                 if isinstance(val, list):
                     lines = [fmt(x) for x in val]
-                    # Prepend the key as the first line
                     doc.page_content = str(key) + "\n" + "\n".join(lines)
                 else:
-                    # value is a scalar or object
                     doc.page_content = str(key) + "\n" + fmt(val)
             else:
                 # Generic dict -> produce key: value lines
