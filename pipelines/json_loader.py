@@ -1,4 +1,5 @@
 from langchain_community.document_loaders import JSONLoader
+import re
 import os
 import json
 from pathlib import Path
@@ -47,6 +48,14 @@ def load_json(file_path: str):
                     doc.page_content = str(key) + "\n" + "\n".join(lines)
                 else:
                     doc.page_content = str(key) + "\n" + fmt(val)
+                # Attempt to extract a canonical course code from the key (e.g. "CICS 160")
+                # and store it in metadata['course_code'] for deterministic lookup later.
+                m = re.search(r"\b(CICS|COMPSCI|INFO|MATH|STAT|PHYS|CS)\s?-?(\d{2,3}[A-Z]?)\b", key, re.I)
+                if m:
+                    prefix = m.group(1).lower()
+                    num = m.group(2)
+                    # normalize prefixes: keep as-is (cics/compsci/cs) but lowercased
+                    doc.metadata["course_code"] = f"{prefix} {num}".lower()
             else:
                 # Generic dict -> produce key: value lines
                 lines = [f"{k}: {json.dumps(v, ensure_ascii=False)}" for k, v in content.items()]
