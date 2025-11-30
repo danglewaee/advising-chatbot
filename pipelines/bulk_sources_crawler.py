@@ -10,6 +10,7 @@ strip=[5,9]
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
 
 SOURCES = {
+    "Spring_2026_Course_Descriptions": "https://content.cs.umass.edu/content/spring-2026-course-descriptions",
     "Fall_2025_Course_Descriptions": "https://content.cs.umass.edu/content/fall-2025-course-description",
     "Spring_2025_Course_Descriptions": "https://content.cs.umass.edu/content/spring-2025-course-descriptions",
     "Fall_2024_Course_Descriptions": "https://content.cs.umass.edu/content/fall-2024-course-descriptions",
@@ -18,6 +19,7 @@ SOURCES = {
 
 def main():
     for name, url in SOURCES.items():
+        print(name)
         try:
             text = fetch_and_strip(url, strip_from_top=strip[0], strip_from_bottom=strip[1])
             with open(OUT_DIR / f"{name}.txt", "w", encoding="utf-8") as f:

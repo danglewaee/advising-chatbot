@@ -20,6 +20,14 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
+## How to add additional sources
+First, add the link and name into pipelines/bulk_sources_crawler.py \\
+Then, run pipelines/bulk_sources_crawler.py \\
+Then, run pipelines/text_to_json.py to convert the text data into json \\
+Then, run pipelines/chunk.py to chunk the json data. \\
+Finally, run embed_index to vector embed all the chunks. \\
+Should work as intended from there.
+
 ## Note on Apple Silicon
 
 The line "import sentence_transformers" will hang if run on Python 3.13 \
