@@ -796,7 +796,7 @@ def generate_answer(query: str,
                     llm_model: str = "gpt-3.5-turbo",
                     key_name_embs=None,
                     key_name_keys=None,
-                    force_llm: bool = False):
+                    force_llm: bool = True):
     """Generate a full answer to `query` using retrieved context.
 
     Tries to use OpenAI's chat completion if `openai` is available and
@@ -855,13 +855,27 @@ def generate_answer(query: str,
         sources_sorted = sorted(list(sources_set))
         return answer_text, sources_sorted
 
-    # Build context block for the prompt
+    # Build context block for the prompt. Annotate snippets with their source
+    # and attempt to extract a 4-digit year from the source name so the LLM
+    # can prefer more recent information when resolving conflicts.
     context_lines = []
-    for i, r in enumerate(results, start=1):
+    year_re = re.compile(r"(19|20)\d{2}")
+    # Present snippets as an unordered list (no numeric indices) so the LLM
+    # does not infer a ranking from ordering. Each item includes the JSON
+    # filename (if available) and an extracted year when present.
+    for r in results:
         src = r.get("source", "") if isinstance(r, dict) else ""
         sent = r.get("text", "") if isinstance(r, dict) else str(r)
-        context_lines.append(f"[{i}] ({src}) {sent}")
+        year = ""
+        if isinstance(src, str):
+            m = year_re.search(src)
+            if m:
+                year = m.group(0)
+        src_file = src if src.lower().endswith('.json') else (src + '.json' if src else '')
+        src_tag = f"{src_file} | {year}" if year else src_file or src
+        context_lines.append(f"- ({src_tag}) {sent}")
     context_text = "\n".join(context_lines)
+
 
     # Short prompt instructing the model to answer based on the retrieved
     # snippets and to cite sources in-line using the bracket numbers above.
@@ -875,10 +889,11 @@ def generate_answer(query: str,
         f"Answer concisely and cite which context snippets you used.")
 
     # Use OpenAI chat completion if configured; otherwise fall back.
+    # receny was moved to system prompt
     if client is not None:
         try:
             resp = client.chat.completions.create(model=llm_model,
-                                                  messages=[{"role": "system", "content": "You are a helpful assistant."},
+                                                  messages=[{"role": "system", "content": "You are a helpful assistant to an advisor in the Manning College of Information and Computer Sciences. Unless explicitly told otherwise by the user, always prefer more recent information when different sources conflict. Assume that fall of any given year is more recent than spring of that same year."},
                                                             {"role": "user", "content": prompt}],
                                                   temperature=0,
                                                   max_tokens=512)
@@ -945,16 +960,26 @@ def generate_answer(query: str,
 
 if __name__ == "__main__":
     q = input("Ask a question: ")
-    # Run the generative pipeline (uses OpenAI if available, otherwise falls
-    # back to a deterministic concatenation of retrieved snippets).
-    answer_text, sources = generate_answer(q, k_docs=8, top_k_sentences=6)
-    # results, _ = retrieve_only(q, k_docs=8, top_k_sentences=6)
-    # print("=== Retrieved Sentences ===\n")
-    # for r in results:
-    #     if isinstance(r, dict):
-    #         print(f"- ({r.get('source', '')}) {r.get('sentence', '')}")
-    #     else:
-    #         print(f"- {str(r)}")
+
+    # Show the retrieved snippets (what will be passed to the LLM)
+    try:
+        retrieved = two_stage_retrieve(q, topk_faiss=80, rerank_top=400, final_k=12, key_name_embs=None, key_name_keys=None)
+    except Exception:
+        retrieved = []
+
+    print("\n=== Retrieved Snippets (two_stage_retrieve) ===\n")
+    if not retrieved:
+        print("(no snippets retrieved)")
+    for i, r in enumerate(retrieved, start=1):
+        src = r.get("source", "<unknown>") if isinstance(r, dict) else "<unknown>"
+        text = r.get("text", "") if isinstance(r, dict) else str(r)
+        print(f"{i}. Source: {src}")
+        print(text.strip())
+        print("-" * 60)
+
+    # Then generate the (LLM or deterministic) answer as before
+    answer_text, sources = generate_answer(q, k_docs=8, top_k_sentences=6, force_llm=True)
+
     print("\n=== Generated Answer ===\n")
     print(answer_text)
     if sources:
